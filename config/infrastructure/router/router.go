@@ -8,9 +8,12 @@ import (
 
 func SetRoute(r *registry.Registry, g *gin.Engine) {
 
-	g.GET("/users", r.NewUserRegistry().FindAll)
-	g.POST("/users", r.NewUserRegistry().Create)
-	g.GET("/user/:id", r.NewUserRegistry().Find)
-	g.DELETE("/users/:id", r.NewUserRegistry().Delete)
+	api := g.Group("/api")
+	{
+		api.GET("/users", r.NewUserRegistry().FindAll)
+		api.POST("/users", r.NewUserRegistry().Create)
+		api.GET("/user/:id", r.NewUserRegistry().Find)
+		api.DELETE("/users/:id", r.NewUserRegistry().Delete)
+	}
 
 }
