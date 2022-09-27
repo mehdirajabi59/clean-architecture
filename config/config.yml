@@ -1,0 +1,5 @@
+database:
+  username: root
+  password: 123456
+  add: 127.0.0.1:3306
+  dbname: clean_app
